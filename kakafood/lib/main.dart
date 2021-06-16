@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -5,8 +7,13 @@ import 'package:provider/provider.dart';
 import 'animation/ScaleRoute.dart';
 import 'model/LoginViewmodel.dart';
 import 'page/SignUpPage.dart';
+import 'utils/constants.dart';
+import 'utils/firebase_service.dart';
+import 'utils/navigate.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (context) => LoginViewmodel()),
@@ -26,16 +33,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       navigatorKey: navigatorKey,
       title: 'Flutter Demo',
+      routes: Navigate.routes,  //註冊路由
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -45,16 +44,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -76,20 +65,6 @@ class _MyHomePageState extends State<MyHomePage> {
         color: Colors.white70,
         child: Column(
           children: <Widget>[
-            // Flexible(
-            //   flex: 1,
-            //   child: InkWell(
-            //     child: Container(
-            //       child: Align(
-            //         alignment: Alignment.topLeft,
-            //         child: Icon(Icons.close),
-            //       ),
-            //     ),
-            //     onTap: () {
-            //       Navigator.pop(context);
-            //     },
-            //   ),
-            // ),
             Flexible(
               flex: 8,
               child: Column(
@@ -355,7 +330,18 @@ class FacebookGoogleLogin extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(top: 10.0),
               child: GestureDetector(
-                onTap: context.read<LoginViewmodel>().login,
+                // onTap: context.read<LoginViewmodel>().login,
+                onTap: () async {
+                  FirebaseService service = new FirebaseService();
+                  try {
+                    await service.signInwithGoogle();
+                    Navigator.pushNamedAndRemoveUntil(context, Constants.homeNavigate, (route) => false);
+                  } catch(e){
+                    if(e is FirebaseAuthException){
+                      showMessage(e.message,context);
+                    }
+                  }
+                },
                 child: Container(
                   padding: const EdgeInsets.all(15.0),
                   decoration: new BoxDecoration(
@@ -373,5 +359,24 @@ class FacebookGoogleLogin extends StatelessWidget {
         ),
       ],
     ));
+  }
+
+  void showMessage(String message,mcontext) {
+    showDialog(
+        context: mcontext,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("Error"),
+            content: Text(message),
+            actions: [
+              TextButton(
+                child: Text("Ok"),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              )
+            ],
+          );
+        });
   }
 }

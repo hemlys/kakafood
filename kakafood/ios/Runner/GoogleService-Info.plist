@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>78377073960-ag23vmgr19j1cp5hl04d9u3ofmtnf6mk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.78377073960-ag23vmgr19j1cp5hl04d9u3ofmtnf6mk</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>78377073960-og47u5pljlm30ci2iai2buis6ag25spm.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDvTRLG_VVIYRocVR1Yi-kAoZEK2lLZjlY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>78377073960</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.view.fishapp</string>
+	<key>PROJECT_ID</key>
+	<string>fishapp-a3bd4</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fishapp-a3bd4.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:78377073960:ios:fc9c93f1593831e09fe41d</string>
+	<key>DATABASE_URL</key>
+	<string>https://fishapp-a3bd4.firebaseio.com</string>
+</dict>
+</plist>

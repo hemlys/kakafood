@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "78377073960",
+    "firebase_url": "https://fishapp-a3bd4.firebaseio.com",
+    "project_id": "fishapp-a3bd4",
+    "storage_bucket": "fishapp-a3bd4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78377073960:android:3b387833107214e99fe41d",
+        "android_client_info": {
+          "package_name": "com.view.fishapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "78377073960-og47u5pljlm30ci2iai2buis6ag25spm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.view.fishapp",
+            "certificate_hash": "3fed9a30a6d33a08a5a656278bf4d57f1d54bfb2"
+          }
+        },
+        {
+          "client_id": "78377073960-p2uap2kd6j3h0hla5c0r1mdo7va7ffpc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.view.fishapp",
+            "certificate_hash": "edb025e739dbb388bf0d4b6c48c4bc20f83fac3e"
+          }
+        },
+        {
+          "client_id": "78377073960-1kjplisv7k3f2b5m40jinctc6l0j145v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYpATTNl1WxEVTU6ZslFDjQpF7pJy3dmA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "78377073960-1kjplisv7k3f2b5m40jinctc6l0j145v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "78377073960-ag23vmgr19j1cp5hl04d9u3ofmtnf6mk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.view.fishapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

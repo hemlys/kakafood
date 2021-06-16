@@ -1,4 +1,4 @@
-package com.food.kaka.kakafood
+package com.view.fishapp
 
 import io.flutter.embedding.android.FlutterActivity
 
